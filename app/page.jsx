@@ -1,8 +1,11 @@
+import About from "@/components/About";
+import Footer from "@/components/Footer";
+
 export default function Home() {
   return (
-    <div className="h-screen flex flex-col justify-center items-center bg-galaxyImg bg-repeat bg-cover bg-opacity-20 text-white">
-      <h1 className="text-3xl font-jedi">Hello World</h1>
-      <h2 className="text-2xl font-outline">Hey there</h2>
+    <div className="h-screen px-20 py-12 bg-black overflow-hidden select-none">
+      <About />
+      <Footer />
     </div>
   );
 }
