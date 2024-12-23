@@ -5,76 +5,102 @@ import India from "@/public";
 import Image from "next/image";
 import { socialLinks } from "@/constants/footerData";
 import React, { useState } from "react";
+import Link from "next/link";
 
 const FooterButton = ({ isOpen, toggleOpen }) => {
   return (
     <button
       onClick={toggleOpen}
-      className={`relative z-20 rounded-full p-4 transition-all duration-300 transform hover:scale-110 w-16 h-16 flex items-center justify-center bg-purple-500 hover:bg-purple-600`}
+      className={`relative z-20 rounded-full p-4 transition-all duration-300 transform w-16 h-16 flex items-center justify-center bg-purple-500 hover:bg-purple-600`}
       aria-label="Toggle social links"
     >
-      {!isOpen && (
-        <svg
-          viewBox="0 0 100 100"
-          className="absolute inset-0 w-full h-full animate-rotate"
-          xmlns="http://www.w3.org/2000/svg"
+      <svg
+        viewBox="0 0 100 100"
+        className={`absolute inset-0 w-full h-full ${
+          isOpen ? "" : "animate-rotate"
+        }`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <path
+            id="circlePath"
+            d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
+          />
+        </defs>
+        <text
+          className="text-sm font-bold text-white"
+          fill="currentColor"
+          dy="5"
         >
-          <defs>
-            <path
-              id="circlePath"
-              d="M 50, 50
-                   m -40, 0
-                   a 40,40 0 1,1 80,0
-                   a 40,40 0 1,1 -80,0"
-            />
-          </defs>
-          <text
-            className="text-sm font-bold text-white"
-            fill="currentColor"
-            dy="5"
-          >
-            <textPath xlinkHref="#circlePath" textLength="250" startOffset="0">
-              Connect • Connect • Connect • Connect •
-            </textPath>
-          </text>
-        </svg>
-      )}
-
-      {isOpen && (
-        <span
-          className={`text-3xl font-bold transition-transform duration-500 ${
-            isOpen ? "scale-125" : "scale-100"
-          }`}
-        >
-          ×
-        </span>
-      )}
+          <textPath xlinkHref="#circlePath" textLength="250" startOffset="0">
+            Connect • Connect • Connect • Connect •
+          </textPath>
+        </text>
+      </svg>
     </button>
   );
 };
 
-const SocialLink = ({ href, icon, label, index, isOpen }) => {
-  const angle = (360 / socialLinks.length) * index;
-  const radius = 80;
-  const x = radius * Math.cos((angle * Math.PI) / 180);
-  const y = radius * Math.sin((angle * Math.PI) / 180);
+const SocialLink = ({ link, icon, label, index, isOpen }) => {
+  const [isGlitching, setIsGlitching] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const offsetX = (index + 1) * -65;
+
+  const handleMouseEnter = () => {
+    setIsGlitching(true);
+    setIsHovered(true);
+    setTimeout(() => {
+      setIsGlitching(false);
+    }, 500);
+  };
+
+  const handleMouseLeave = () => {
+    setIsGlitching(false);
+    setIsHovered(false);
+  };
 
   return (
-    <a
-      href={href}
+    <Link
+      href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`absolute w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-500 transform ${
-        isOpen ? "opacity-100 scale-100" : "opacity-0 scale-0"
-      } hover:scale-110 hover:shadow-2xl`}
+      className={`absolute w-12 h-12 flex items-center justify-center
+        rounded-full transition-all duration-500
+        ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[60px]"}
+      `}
       style={{
-        transform: isOpen ? `translate(${x}px, ${y}px)` : "translate(0, 0)",
+        transform: isOpen ? `translateX(${offsetX}px)` : "translateX(0px)",
         transitionDelay: `${index * 100}ms`,
       }}
       aria-label={label}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <span className="text-lg">{icon}</span>
-    </a>
+      <span
+        className={`relative text-xl transition-all duration-300 ${
+          isGlitching
+            ? "text-white"
+            : isHovered
+            ? "text-purple-500"
+            : "text-white"
+        }`}
+      >
+        {icon}
+      </span>
+      {isGlitching && (
+        <>
+          <span className="absolute inset-0 flex items-center justify-center text-xl text-cyan-400 animate-glitch-cyan pointer-events-none">
+            {icon}
+          </span>
+          <span className="absolute inset-0 flex items-center justify-center text-xl text-pink-400 animate-glitch-pink pointer-events-none">
+            {icon}
+          </span>
+          <span className="absolute inset-0 flex items-center justify-center text-xl text-purple-200 animate-glitch-yellow pointer-events-none">
+            {icon}
+          </span>
+        </>
+      )}
+    </Link>
   );
 };
 

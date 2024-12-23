@@ -23,3 +23,105 @@
 .hover\:shadow-2xl:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
+
+/* Glitch Animations */
+@keyframes glitch-cyan {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateX(-2px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(2px);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateX(-1px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes glitch-pink {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateX(1px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-1px);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateX(2px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes glitch-yellow {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateX(2px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateX(-2px);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(1px);
+    opacity: 0.7;
+  }
+}
+
+.animate-glitch-cyan {
+  animation: glitch-cyan 0.3s steps(2, jump-none) infinite;
+}
+
+.animate-glitch-pink {
+  animation: glitch-pink 0.3s steps(2, jump-none) infinite;
+}
+
+.animate-glitch-yellow {
+  animation: glitch-yellow 0.3s steps(2, jump-none) infinite;
+}
+
+/* Text Gradient Effect */
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #dfcfff 10%,
+    #d8c4ff 20%,
+    #d0b8ff 30%,
+    #e4d6ff 50%,
+    #f0e8ff 60%,
+    #ffffff 80%,
+    #faf7ff 90%,
+    #d1ccdb 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientShift 120s ease-in-out forwards;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}

@@ -915,11 +915,6 @@ doctrine@^2.1.0:
   dependencies:
     esutils "^2.0.2"
 
-dommatrix@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/dommatrix/-/dommatrix-1.0.3.tgz#e7c18e8d6f3abdd1fef3dd4aa74c4d2e620a0525"
-  integrity sha512-l32Xp/TLgWb8ReqbVJAFIvXmY7go4nTxxlWiAFyhoQw9RKEOHBZNnyGvJWqDVSPmq3Y9HlM4npqF/T6VMOXhww==
-
 dunder-proto@^1.0.0, dunder-proto@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/dunder-proto/-/dunder-proto-1.0.1.tgz#d7ae667e1dc83482f8b70fd0f6eefc50da30f58a"
@@ -2239,13 +2234,6 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-curved-text@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/react-curved-text/-/react-curved-text-3.0.1.tgz#3d1aa1867df5d2ad22987d16e0da4d9f195db69e"
-  integrity sha512-tHRDAfiVa8bVMTadRdHfGoO/PjPgLF42RODAWoQlc2PNnwTDBh0hbSAZtNiNSmd8C3gB2d0rlNd841UXb0/rTQ==
-  dependencies:
-    svg-path-commander "1.0.5"
-
 react-dom@^19.0.0:
   version "19.0.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.0.0.tgz#43446f1f01c65a4cd7f7588083e686a6726cfb57"
@@ -2668,13 +2656,6 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
-
-svg-path-commander@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/svg-path-commander/-/svg-path-commander-1.0.5.tgz#99590f05795364af201ed9e29ad1b5b748c44629"
-  integrity sha512-hhQfARVXoPrwwe4DNPWM4hjQLK7rTxwQ+TUc5mxoe5g0k5eStc4SPnKqmivlm/dzZ98bI+yDyKye92n2t+oOiQ==
-  dependencies:
-    dommatrix "^1.0.3"
 
 tailwind-merge@^2.5.5:
   version "2.5.5"

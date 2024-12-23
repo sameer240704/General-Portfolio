@@ -6,31 +6,31 @@ export const socialLinks = [
     {
         id: 1,
         icon: <FaGithub />,
-        link: "https://github.com",
+        link: "https://github.com/sameer240704",
         label: "GitHub"
     },
     {
         id: 2,
         icon: <FaLinkedin />,
-        link: "https://github.com",
+        link: "https://www.linkedin.com/in/sameergupta24/",
         label: "LinkedIn"
     },
     {
         id: 3,
         icon: <FaInstagram />,
-        link: "https://instagram.com",
+        link: "https://instagram.com/sameergupta.24",
         label: "Instagram"
     },
     {
         id: 4,
         icon: <FaXTwitter />,
-        link: "https://twitter.com",
+        link: "https://x.com/SameerGupt348",
         label: "Twitter"
     },
     {
         id: 5,
         icon: <MdEmail />,
-        link: "mailto:someone@example.com",
+        link: "mailto:sameergupta79711@gmail.com",
         label: "Email"
     }
 ];
