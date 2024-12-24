@@ -22,7 +22,6 @@ export default {
 				hiatus: ["var(--font-hiatus)"],
 				montserrat: ["var(--font-montserrat)"]
 			},
-
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

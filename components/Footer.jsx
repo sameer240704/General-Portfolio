@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 import India from "@/public";
 import Image from "next/image";
 import { socialLinks } from "@/constants/footerData";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 const FooterButton = ({ isOpen, toggleOpen }) => {
@@ -104,12 +104,90 @@ const SocialLink = ({ link, icon, label, index, isOpen }) => {
   );
 };
 
+const NavigationBar = () => {
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    // Initial animation after component mount
+    const initialDelay = setTimeout(() => {
+      setIsAnimating(true);
+
+      // Reset after 1 second (animation duration)
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 1000);
+    }, 1400); // Match the initial slideUp animation delay
+
+    // Set up the repeating interval
+    const intervalId = setInterval(() => {
+      setIsAnimating(true);
+
+      // Reset after 1 second (animation duration)
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 1000);
+    }, 10000); // Repeat every 10 seconds
+
+    // Cleanup
+    return () => {
+      clearTimeout(initialDelay);
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  return (
+    <div
+      className="opacity-0 group"
+      style={{
+        animation: "slideUp 1s ease-out forwards",
+        animationDelay: "1.4s",
+      }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <div className="relative w-12 h-12 flex items-center justify-center">
+        <div className="grid grid-cols-2 gap-1 rotate-45">
+          <div
+            className={`block-1 w-3 h-3 bg-white rounded-[.2rem] ${
+              isAnimating || hover ? "animate-block-1" : ""
+            }`}
+          ></div>
+          <div
+            className={`block-2 w-3 h-3 bg-white rounded-[.2rem] ${
+              isAnimating || hover ? "animate-block-2" : ""
+            }`}
+          ></div>
+          <div
+            className={`block-3 w-3 h-3 bg-white rounded-[.2rem] ${
+              isAnimating || hover ? "animate-block-3" : ""
+            }`}
+          ></div>
+          <div
+            className={`block-4 w-2 h-2 bg-purple-500 rounded-[.1rem] ${
+              isAnimating || hover ? "animate-block-4" : ""
+            }`}
+          ></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="h-[10%] w-full flex flex-col justify-center items-center text-white font-montserrat relative px-4 py-8 sm:py-12">
-      <div className="w-full flex justify-between items-center">
+    <div className="absolute w-full flex flex-col justify-center items-center bottom-5 text-white font-montserrat px-24 py-8 max-sm:py-12">
+      <NavigationBar />
+
+      <div
+        className="w-full flex justify-between items-center opacity-0"
+        style={{
+          animation: "slideUp 1s ease-out forwards",
+          animationDelay: "1.8s",
+        }}
+      >
         <div className="flex items-center font-light">
           <MapPin className="mr-2 text-lg" />
           <div className="text-base sm:text-lg flex items-baseline gap-x-1.5">
@@ -124,6 +202,7 @@ const Footer = () => {
             </span>
           </div>
         </div>
+
         <div className="relative isolate flex justify-center items-center">
           <FooterButton isOpen={isOpen} toggleOpen={() => setIsOpen(!isOpen)} />
           <div className="absolute inset-0 flex items-center justify-center">

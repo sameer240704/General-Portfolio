@@ -114,7 +114,7 @@
   background-position: 100% 0;
   -webkit-background-clip: text;
   color: transparent;
-  animation: gradientShift 120s ease-in-out forwards;
+  animation: gradientShift 200s ease-in-out forwards;
 }
 
 @keyframes gradientShift {
@@ -124,4 +124,251 @@
   100% {
     background-position: 0% 0;
   }
+}
+
+/* Landing Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* Appear Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading Animation */
+@keyframes block4Animation {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  0%,
+  25% {
+    transform: scale(0.4);
+  }
+  25%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes block3Animation {
+  0%,
+  25% {
+    transform: scale(1);
+  }
+  25%,
+  50% {
+    transform: scale(0.4);
+  }
+  50%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes block2Animation {
+  0%,
+  50% {
+    transform: scale(1);
+  }
+  50%,
+  75% {
+    transform: scale(0.4);
+  }
+  75%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes block1Animation {
+  0%,
+  75% {
+    transform: scale(1);
+  }
+  75%,
+  100% {
+    transform: scale(0.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.block-4 {
+  animation: block4Animation 1s linear 0s infinite;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  animation-duration: 1s;
+}
+
+.block-3 {
+  animation: block3Animation 1s linear 0s infinite;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  animation-duration: 1s;
+}
+
+.block-2 {
+  animation: block2Animation 1s linear 0s infinite;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  animation-duration: 1s;
+}
+
+.block-1 {
+  animation: block1Animation 1s linear 0s infinite;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  animation-duration: 1s;
+}
+
+/* Hover animations */
+@keyframes block4HoverAnimation {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  0%,
+  25% {
+    transform: scale(0.4);
+  }
+  25%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes block3HoverAnimation {
+  0%,
+  25% {
+    transform: scale(1);
+  }
+  25%,
+  50% {
+    transform: scale(0.4);
+  }
+  50%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes block2HoverAnimation {
+  0%,
+  50% {
+    transform: scale(1);
+  }
+  50%,
+  75% {
+    transform: scale(0.4);
+  }
+  75%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes block1HoverAnimation {
+  0%,
+  75% {
+    transform: scale(1);
+  }
+  75%,
+  100% {
+    transform: scale(0.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.group:hover .block-4 {
+  animation: block4HoverAnimation 1s linear infinite;
+}
+
+.group:hover .block-3 {
+  animation: block3HoverAnimation 1s linear infinite;
+}
+
+.group:hover .block-2 {
+  animation: block2HoverAnimation 1s linear infinite;
+}
+
+.group:hover .block-1 {
+  animation: block1HoverAnimation 1s linear infinite;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add 10-second pause between animations */
+.block-1,
+.block-2,
+.block-3,
+.block-4 {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-timeline: auto;
+  animation-range: normal;
+  animation-composition: replace;
+  animation-gap: 9s;
 }
