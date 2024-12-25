@@ -144,7 +144,7 @@ const LandingLoading = ({ loadingComplete }) => {
 
     setTimeout(() => setShowWelcome(true), 2000);
     setTimeout(() => setShowWelcome(false), 4000);
-    setTimeout(() => loadingComplete(), 5000);
+    setTimeout(() => loadingComplete(), 4000);
 
     return () => window.removeEventListener("resize", calculateGrid);
   }, []);
@@ -174,7 +174,7 @@ const LandingLoading = ({ loadingComplete }) => {
       <div className="absolute inset-0 flex items-center justify-center z-10">
         {showWelcome && (
           <div
-            className="text-white font-bold opacity-0  uppercase tracking-wider"
+            className="text-white font-bold opacity-0 uppercase tracking-[1rem]"
             style={{
               animation: "fadeInOut 2s forwards",
               fontFamily: "sans-serif",

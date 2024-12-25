@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import About from "@/components/About";
 import Loading from "@/components/LandingLoading";
+import MaskImage from "@/components/MaskImage";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -16,14 +17,16 @@ export default function Home() {
 
   return (
     <main className="relative h-screen w-screen bg-black overflow-hidden select-none">
-      <Loading loadingComplete={() => setLoading(false)} />
-      {showContent && (
-        <div className="relative z-20 animate-fadeIn">
-          <div className="backdrop-blur-md bg-black/50">
-            <About />
+      <MaskImage>
+        <Loading loadingComplete={() => setLoading(false)} />
+        {showContent && (
+          <div className="relative z-20 animate-fadeIn">
+            <div className="backdrop-blur-md bg-black/50">
+              <About />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </MaskImage>
     </main>
   );
 }
