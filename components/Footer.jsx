@@ -6,6 +6,35 @@ import Image from "next/image";
 import { socialLinks } from "@/constants/footerData";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const MENU_LINKS = [
+  { name: "ABOUT", link: "/" },
+  { name: "PROJECTS", link: "/projects" },
+  { name: "SKILLS", link: "/skills" },
+];
+
+const menuWrapperAnim = {
+  open: {
+    scale: 1,
+    rotateY: 0,
+    translateZ: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.36,
+    },
+  },
+  close: {
+    scale: 0,
+    rotateY: -80,
+    translateZ: -350,
+    transition: {
+      rotateY: { delay: 0.3, type: "spring", mass: 0.2 },
+      duration: 0.3,
+      delay: 0.1,
+    },
+  },
+};
 
 const FooterButton = ({ isOpen, toggleOpen }) => {
   return (
@@ -104,72 +133,191 @@ const SocialLink = ({ link, icon, label, index, isOpen }) => {
   );
 };
 
+const MenuLink = ({
+  index,
+  name,
+  navLink,
+  hoverPageNo,
+  onTap,
+  onHoverStart,
+  onHoverEnd,
+}) => {
+  const isHovered = hoverPageNo === index;
+
+  return (
+    <motion.li
+      className="w-full h-full flex flex-row flex-wrap content-center justify-center cursor-pointer relative"
+      onHoverStart={onHoverStart}
+      onHoverEnd={onHoverEnd}
+      onClick={onTap}
+    >
+      {isHovered && (
+        <>
+          <motion.div
+            className="w-1/4 h-28 bg-purple-400 absolute bottom-[1px] blur-2xl"
+            layoutId="selectedBack"
+          />
+          <motion.div
+            className="w-1/3 h-1 rounded-xl bg-purple-400/50 absolute bottom-0"
+            layoutId="selectedFront"
+          />
+        </>
+      )}
+      <Link
+        href={navLink}
+        className="w-full h-full flex justify-center items-center no-underline font-semibold text-clamp text-[#c1d3c5] transition-colors delay-200 z-10"
+      >
+        {name}
+      </Link>
+    </motion.li>
+  );
+};
+
+const NavigationMenu = ({ isOpen }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [hoverPage, setHoverPage] = useState(0);
+
+  const selectPage = (index) => {
+    setCurrentPage(index);
+    setHoverPage(index);
+  };
+
+  return (
+    <section className="absolute -top-2 left-0 right-0 flex flex-row items-center z-[9] md:flex-col md:gap-3">
+      <div className="relative bottom-5 flex perspective-[500px] flex-col items-center w-full md:bottom-0">
+        <motion.div
+          variants={menuWrapperAnim}
+          className="relative w-[35vw] max-md:w-[85vw]"
+          initial="close"
+          animate={isOpen ? "open" : "close"}
+        >
+          <div className="relative w-full">
+            <div
+              className="bg-[rgba(128,0,128,0.08)] backdrop-blur-3xl h-[3.8vw] w-full md:h-[9.5vw] relative"
+              style={{
+                maskImage: 'url("/images/mask2.png")',
+                maskRepeat: "no-repeat",
+                maskSize: "100%",
+                maskPosition: "center",
+                WebkitMaskImage: 'url("/images/mask2.png")',
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "100%",
+                WebkitMaskPosition: "center",
+              }}
+            >
+              <div
+                className="absolute inset-0 bg-[rgba(200,155,242,0.3)] backdrop-blur-3xl"
+                style={{
+                  maskImage: 'url("/images/mask.png")',
+                  maskRepeat: "no-repeat",
+                  maskSize: "100%",
+                  maskPosition: "center",
+                  WebkitMaskImage: 'url("/images/mask.png")',
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskSize: "100%",
+                  WebkitMaskPosition: "center",
+                }}
+              />
+
+              <div
+                className="absolute inset-0 opacity-40"
+                style={{
+                  backgroundImage: 'url("/images/dots.png")',
+                  backgroundSize: "65px",
+                }}
+              />
+
+              <ul className="list-none flex flex-row w-full h-full absolute px-8 m-0 items-center z-[2]">
+                {MENU_LINKS.map((item, i) => (
+                  <MenuLink
+                    key={i}
+                    index={i}
+                    name={item.name}
+                    navLink={item.link}
+                    hoverPageNo={hoverPage}
+                    onTap={() => selectPage(i)}
+                    onHoverStart={() => setHoverPage(i)}
+                    onHoverEnd={() => setHoverPage(currentPage)}
+                  />
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const NavigationBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [hover, setHover] = useState(false);
 
   useEffect(() => {
-    // Initial animation after component mount
     const initialDelay = setTimeout(() => {
-      setIsAnimating(true);
+      triggerAnimation();
+    }, 1400);
 
-      // Reset after 1 second (animation duration)
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 1000);
-    }, 1400); // Match the initial slideUp animation delay
-
-    // Set up the repeating interval
     const intervalId = setInterval(() => {
-      setIsAnimating(true);
+      triggerAnimation();
+    }, 4000);
 
-      // Reset after 1 second (animation duration)
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 1000);
-    }, 10000); // Repeat every 10 seconds
-
-    // Cleanup
     return () => {
       clearTimeout(initialDelay);
       clearInterval(intervalId);
     };
   }, []);
 
+  const triggerAnimation = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 1000);
+  };
+
   return (
-    <div
-      className="opacity-0 group"
-      style={{
-        animation: "slideUp 1s ease-out forwards",
-        animationDelay: "1.4s",
-      }}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
-      <div className="relative w-12 h-12 flex items-center justify-center">
-        <div className="grid grid-cols-2 gap-1 rotate-45">
-          <div
-            className={`block-1 w-3 h-3 bg-white rounded-[.2rem] ${
-              isAnimating || hover ? "animate-block-1" : ""
-            }`}
-          ></div>
-          <div
-            className={`block-2 w-3 h-3 bg-white rounded-[.2rem] ${
-              isAnimating || hover ? "animate-block-2" : ""
-            }`}
-          ></div>
-          <div
-            className={`block-3 w-3 h-3 bg-white rounded-[.2rem] ${
-              isAnimating || hover ? "animate-block-3" : ""
-            }`}
-          ></div>
-          <div
-            className={`block-4 w-2 h-2 bg-purple-500 rounded-[.1rem] ${
-              isAnimating || hover ? "animate-block-4" : ""
-            }`}
-          ></div>
+    <div className="relative">
+      <button
+        className="opacity-0 group cursor-pointer relative z-20"
+        style={{
+          animation: "slideUp 1s ease-out forwards",
+          animationDelay: "1.4s",
+        }}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-label="Toggle navigation menu"
+      >
+        <div className="relative w-12 h-12 flex items-center justify-center">
+          <div className="grid grid-cols-2 gap-1 rotate-45">
+            {[1, 2, 3, 4].map((blockNum) => (
+              <div
+                key={blockNum}
+                className={`
+                  ${
+                    blockNum === 4
+                      ? "w-1.5 h-1.5 bg-purple-500 rounded-[.1rem]"
+                      : "w-2.5 h-2.5 bg-white rounded-[.2rem]"
+                  }
+                  ${isAnimating ? `animate-block-${blockNum}` : ""}
+                  ${hover ? `hover-block-${blockNum}` : ""}
+                  transition-transform duration-300
+                `}
+                style={{
+                  animation:
+                    isAnimating || hover
+                      ? `block${blockNum}Animation 1s linear infinite`
+                      : "none",
+                }}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </button>
+
+      <NavigationMenu isOpen={isOpen} />
     </div>
   );
 };

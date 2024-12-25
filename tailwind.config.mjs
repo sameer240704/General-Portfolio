@@ -22,6 +22,9 @@ export default {
 				hiatus: ["var(--font-hiatus)"],
 				montserrat: ["var(--font-montserrat)"]
 			},
+			fontSize: {
+				'clamp': 'clamp(0.5rem, 0.6vw + 0.4rem, 1.125rem)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

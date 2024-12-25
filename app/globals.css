@@ -355,24 +355,6 @@
   }
 }
 
-/* Add 10-second pause between animations */
-.block-1,
-.block-2,
-.block-3,
-.block-4 {
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-delay: 0s;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  animation-fill-mode: both;
-  animation-play-state: running;
-  animation-timeline: auto;
-  animation-range: normal;
-  animation-composition: replace;
-  animation-gap: 9s;
-}
-
 /* Mask Image */
 .mask-container {
   position: relative;

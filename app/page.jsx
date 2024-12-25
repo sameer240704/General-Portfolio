@@ -21,7 +21,7 @@ export default function Home() {
         <Loading loadingComplete={() => setLoading(false)} />
         {showContent && (
           <div className="relative z-20 animate-fadeIn">
-            <div className="backdrop-blur-md bg-black/50">
+            <div className="backdrop-blur-2xl bg-black/50">
               <About />
             </div>
           </div>
