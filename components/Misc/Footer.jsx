@@ -7,12 +7,8 @@ import { socialLinks } from "@/constants/footerData";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-const MENU_LINKS = [
-  { name: "ABOUT", link: "/" },
-  { name: "PROJECTS", link: "/projects" },
-  { name: "SKILLS", link: "/skills" },
-];
+import { MENU_LINKS } from "@/constants/footerData";
+import { useGlobalState } from "@/hooks/useGlobalState";
 
 const menuWrapperAnim = {
   open: {
@@ -136,13 +132,13 @@ const SocialLink = ({ link, icon, label, index, isOpen }) => {
 const MenuLink = ({
   index,
   name,
-  navLink,
   hoverPageNo,
-  onTap,
   onHoverStart,
   onHoverEnd,
+  onTap,
 }) => {
   const isHovered = hoverPageNo === index;
+  const { currentSection } = useGlobalState();
 
   return (
     <motion.li
@@ -163,12 +159,13 @@ const MenuLink = ({
           />
         </>
       )}
-      <Link
-        href={navLink}
-        className="w-full h-full flex justify-center items-center no-underline font-semibold text-clamp text-[#c1d3c5] transition-colors delay-200 z-10"
+      <span
+        className={`w-full h-full ${
+          currentSection === name ? "font-semibold" : "font-medium"
+        } flex justify-center items-center no-underline text-clamp text-[#c1d3c5] transition-colors delay-200 z-10`}
       >
         {name}
-      </Link>
+      </span>
     </motion.li>
   );
 };
@@ -176,10 +173,21 @@ const MenuLink = ({
 const NavigationMenu = ({ isOpen }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [hoverPage, setHoverPage] = useState(0);
+  const { setCurrentSection } = useGlobalState();
 
-  const selectPage = (index) => {
+  const handleHoverStart = (index) => {
+    setHoverPage(index);
+  };
+
+  const handleHoverEnd = () => {
+    setHoverPage(currentPage);
+  };
+
+  const handleSelectPage = (index) => {
     setCurrentPage(index);
     setHoverPage(index);
+    const sectionName = MENU_LINKS[index]?.name;
+    if (sectionName) setCurrentSection(sectionName);
   };
 
   return (
@@ -235,9 +243,9 @@ const NavigationMenu = ({ isOpen }) => {
                     name={item.name}
                     navLink={item.link}
                     hoverPageNo={hoverPage}
-                    onTap={() => selectPage(i)}
-                    onHoverStart={() => setHoverPage(i)}
-                    onHoverEnd={() => setHoverPage(currentPage)}
+                    onHoverStart={() => handleHoverStart(i)}
+                    onHoverEnd={handleHoverEnd}
+                    onTap={() => handleSelectPage(i)}
                   />
                 ))}
               </ul>

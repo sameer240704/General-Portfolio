@@ -1,6 +1,9 @@
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import { ImSphere } from "react-icons/im";
+import { IoGameController } from "react-icons/io5";
+import { CiMobile3 } from "react-icons/ci";
 
 export const socialLinks = [
     {
@@ -34,3 +37,15 @@ export const socialLinks = [
         label: "Email"
     }
 ];
+
+export const MENU_LINKS = [
+    { name: "ABOUT" },
+    { name: "PROJECTS" },
+    { name: "SKILLS" },
+];
+
+export const CARD_NAMES = [
+    { name: "Web Dev", icon: <ImSphere /> },
+    { name: "Game Dev", icon: <IoGameController /> },
+    { name: "App Dev", icon: <CiMobile3 /> }
+]

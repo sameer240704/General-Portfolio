@@ -1,5 +1,6 @@
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
+import { GlobalStateProvider } from "@/hooks/useGlobalState";
 import "./globals.css";
 
 const montserratFont = Montserrat({
@@ -20,11 +21,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${montserratFont.variable} ${hiatusFont.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <GlobalStateProvider>
+        <body
+          className={`${montserratFont.variable} ${hiatusFont.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </GlobalStateProvider>
     </html>
   );
 }

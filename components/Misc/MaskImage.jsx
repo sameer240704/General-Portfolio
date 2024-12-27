@@ -1,5 +1,3 @@
-import React from "react";
-
 const MaskImage = ({ children }) => {
   return (
     <div className="mask-container relative w-full h-full">
