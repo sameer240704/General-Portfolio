@@ -39,7 +39,12 @@ const LandingLoading = ({ loadingComplete, loading }) => {
   return (
     <div className="fixed inset-0 w-screen h-screen bg-[#141329] overflow-hidden">
       {!loading && (
-        <div className="absolute inset-0 bg-black/10 backdrop-blur-[8px] z-20 pointer-events-none transition-opacity duration-700"></div>
+        <div
+          className="absolute inset-0 bg-black/10 backdrop-blur-[8px] z-20 pointer-events-none"
+          style={{
+            animation: `fadeIn 0.5s forwards`,
+          }}
+        ></div>
       )}
       <div
         className="absolute inset-0 grid gap-x-10 gap-y-10"
