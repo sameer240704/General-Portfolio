@@ -462,3 +462,58 @@
     transform: translateY(0);
   }
 }
+
+/* Skills Card */
+.glassmorphism {
+  background: rgba(242, 224, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.skill-card:hover {
+  transform: scale(101%);
+  transition: all 0.5s ease-in-out;
+}
+
+.tilted-container {
+  transform: perspective(1100px) rotateX(0deg) rotateY(16deg);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-90deg);
+    transform-origin: right center;
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+    transform-origin: right center;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: perspective(1100px) rotateX(0deg) rotateY(90deg);
+    transform-origin: left center;
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1100px) rotateX(0deg) rotateY(16deg);
+    transform-origin: center;
+  }
+}
+
+.blurred {
+  filter: blur(4px);
+  opacity: 0.5;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.unblurred {
+  filter: blur(0);
+  opacity: 1;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}

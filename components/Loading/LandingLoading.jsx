@@ -1,120 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  FaReact,
-  FaNodeJs,
-  FaHtml5,
-  FaCss3,
-  FaSass,
-  FaAws,
-  FaJava,
-  FaFigma,
-  FaDocker,
-  FaBootstrap,
-  FaDatabase,
-  FaXbox,
-  FaGitlab,
-  FaGitAlt,
-  FaRust,
-  FaGithub,
-  FaPython,
-  FaLinux,
-} from "react-icons/fa";
-import { VscAzure, VscVscode } from "react-icons/vsc";
-import {
-  SiNextdotjs,
-  SiNginx,
-  SiTypescript,
-  SiOpencv,
-  SiLangchain,
-  SiMongodb,
-  SiEpicgames,
-  SiPytorch,
-  SiHuggingface,
-  SiUnity,
-  SiBlender,
-  SiNpm,
-  SiPostman,
-  SiTailwindcss,
-  SiUnrealengine,
-  SiMysql,
-  SiTensorflow,
-  SiRockstargames,
-  SiVite,
-  SiCanva,
-  SiRiotgames,
-  SiNintendoswitch,
-} from "react-icons/si";
-import { TbBrandKotlin } from "react-icons/tb";
-import { RiJavascriptFill } from "react-icons/ri";
-import {
-  BiLogoPostgresql,
-  BiLogoDiscordAlt,
-  BiLogoDjango,
-  BiLogoFirebase,
-  BiLogoFlask,
-  BiLogoRedux,
-  BiLogoCPlusPlus,
-} from "react-icons/bi";
-import { FaGolang } from "react-icons/fa6";
-import { IoLogoGameControllerB } from "react-icons/io";
+import { techIcons } from "@/constants/techIconsData";
 
-const techIcons = [
-  FaReact,
-  FaFigma,
-  FaNodeJs,
-  FaHtml5,
-  FaCss3,
-  RiJavascriptFill,
-  SiRockstargames,
-  SiTypescript,
-  FaDocker,
-  SiLangchain,
-  SiEpicgames,
-  FaGithub,
-  FaJava,
-  FaBootstrap,
-  BiLogoFlask,
-  BiLogoFirebase,
-  SiCanva,
-  FaAws,
-  SiVite,
-  FaLinux,
-  SiPostman,
-  VscAzure,
-  SiNginx,
-  SiNintendoswitch,
-  FaPython,
-  SiRiotgames,
-  FaSass,
-  SiNextdotjs,
-  BiLogoDjango,
-  BiLogoPostgresql,
-  FaGitlab,
-  FaXbox,
-  SiUnrealengine,
-  FaGitAlt,
-  VscVscode,
-  BiLogoDiscordAlt,
-  SiUnity,
-  SiHuggingface,
-  IoLogoGameControllerB,
-  SiNpm,
-  SiMysql,
-  SiBlender,
-  BiLogoRedux,
-  SiPytorch,
-  TbBrandKotlin,
-  FaDatabase,
-  SiTailwindcss,
-  SiTensorflow,
-  FaGolang,
-  SiMongodb,
-  SiOpencv,
-  FaRust,
-  BiLogoCPlusPlus,
-];
-
-const LandingLoading = ({ loadingComplete }) => {
+const LandingLoading = ({ loadingComplete, loading }) => {
   const [iconGrid, setIconGrid] = useState([]);
   const [showWelcome, setShowWelcome] = useState(false);
 
@@ -151,6 +38,9 @@ const LandingLoading = ({ loadingComplete }) => {
 
   return (
     <div className="fixed inset-0 w-screen h-screen bg-[#141329] overflow-hidden">
+      {!loading && (
+        <div className="absolute inset-0 bg-black/10 backdrop-blur-[8px] z-20 pointer-events-none transition-opacity duration-700"></div>
+      )}
       <div
         className="absolute inset-0 grid gap-x-10 gap-y-10"
         style={{ marginLeft: "-30px", marginTop: "-30px" }}
@@ -174,7 +64,7 @@ const LandingLoading = ({ loadingComplete }) => {
       <div className="absolute inset-0 flex items-center justify-center z-10">
         {showWelcome && (
           <div
-            className="text-white font-bold opacity-0 uppercase tracking-[1rem]"
+            className="text-white font-bold opacity-0 uppercase tracking-[0.5rem]"
             style={{
               animation: "fadeInOut 2s forwards",
               fontFamily: "sans-serif",

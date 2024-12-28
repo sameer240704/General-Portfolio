@@ -23,10 +23,11 @@ export default function Home() {
   return (
     <main className="relative h-screen w-screen bg-black overflow-hidden select-none">
       <MaskImage>
-        <Loading loadingComplete={() => setLoading(false)} />
+        <Loading loadingComplete={() => setLoading(false)} loading={loading} />
+
         {showContent && (
-          <div className="relative z-20 animate-fadeIn">
-            <div className="h-screen backdrop-blur-2xl bg-black/50">
+          <div className="relative z-50 animate-fadeIn">
+            <div className="h-screen backdrop-blur-3xl bg-black/50">
               {currentSection === "ABOUT" && <About />}
               {currentSection === "PROJECTS" && <Projects />}
               {currentSection === "SKILLS" && <Skills />}

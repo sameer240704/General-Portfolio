@@ -161,7 +161,7 @@ const MenuLink = ({
       )}
       <span
         className={`w-full h-full ${
-          currentSection === name ? "font-semibold" : "font-medium"
+          currentSection === name ? "font-semibold" : ""
         } flex justify-center items-center no-underline text-clamp text-[#c1d3c5] transition-colors delay-200 z-10`}
       >
         {name}
@@ -334,7 +334,7 @@ const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="absolute w-full flex flex-col justify-center items-center bottom-5 text-white font-montserrat px-24 py-8 max-sm:py-12">
+    <div className="absolute w-full flex flex-col justify-center items-center bottom-5 text-white font-montserrat px-24 py-8 max-sm:py-12 z-50">
       <NavigationBar />
 
       <div

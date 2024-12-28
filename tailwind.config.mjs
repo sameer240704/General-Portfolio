@@ -24,6 +24,10 @@ export default {
 			},
 			fontSize: {
 				'clamp': 'clamp(0.5rem, 0.6vw + 0.4rem, 1.125rem)',
+				'10xl': ['13rem', {
+					lineHeight: '1rem',
+					letterSpacing: '0.5rem'
+				}]
 			},
 		}
 	},
