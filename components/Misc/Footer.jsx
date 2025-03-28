@@ -1,7 +1,7 @@
 "use client";
 
 import { MapPin } from "lucide-react";
-import India from "@/public";
+import { India } from "@/public";
 import Image from "next/image";
 import { socialLinks } from "@/constants/footerData";
 import React, { useState, useEffect } from "react";

@@ -15,7 +15,6 @@ const SkillsNumber = ({ hoveredElement }) => {
   }, [hoveredElement]);
 
   useEffect(() => {
-    // Skip animation on initial render
     if (isInitialRender) {
       setIsInitialRender(false);
       return;

@@ -1,3 +1,6 @@
 import India from "./images/india-outline.png";
 
-export default India
+// Web Projects
+import VaniVikasWeb from "./images/projects/web/VANI_VIKAS_WEB.png";
+
+export { India, VaniVikasWeb }

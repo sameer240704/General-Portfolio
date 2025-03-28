@@ -29,7 +29,7 @@ const About = () => {
             animationDelay: "1s",
           }}
         >
-          <h3>- Ex-Intern @ FMX Proptech -</h3>
+          <h3>- Full Stack Developer Intern @ MyPacific -</h3>
         </div>
       </div>
 
