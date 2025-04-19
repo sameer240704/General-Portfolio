@@ -29,7 +29,7 @@ const About = () => {
             animationDelay: "1s",
           }}
         >
-          <h3>- Full Stack Developer Intern @ MyPacific -</h3>
+          <h3>- Research Engineer Intern @ SimPPL -</h3>
         </div>
       </div>
 
