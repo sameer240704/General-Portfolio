@@ -42,6 +42,7 @@ import {
     SiCanva,
     SiRiotgames,
     SiNintendoswitch,
+    SiGodotengine
 } from "react-icons/si";
 import { TbBrandKotlin } from "react-icons/tb";
 import { RiJavascriptFill } from "react-icons/ri";
@@ -100,6 +101,7 @@ export const techIcons = [
     SiNpm,
     SiMysql,
     SiBlender,
+    SiGodotengine,
     BiLogoRedux,
     SiPytorch,
     TbBrandKotlin,
