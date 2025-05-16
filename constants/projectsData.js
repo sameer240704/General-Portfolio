@@ -85,7 +85,7 @@ export const projectsData = [
     },
     {
         id: 4,
-        title: "VaniVikas - Speech Language Therapy Clinical Services",
+        title: "Better World - CSR Management",
         year: "2025",
         description:
             "Vani Vikas is a comprehensive digital platform which aims to digitize and manage the entire speech language therapy process from patient registration to therapy completion. A website and an application together make the entire speech therapy process a seamless one.",
@@ -107,7 +107,7 @@ export const projectsData = [
             "Mapbox",
             "Groq API"
         ],
-        link: "https://github.com/sameer240704/bestiesofsyntax_LOC7",
+        link: "https://youtu.be/0kGHDOfh8jk",
         madeAt: "Lines of Code 7.0",
     },
     {
