@@ -1,5 +1,5 @@
 import { FaAngular, FaCss3Alt, FaReact, FaNodeJs, FaPython } from "react-icons/fa";
-import { SiJavascript, SiTailwindcss, SiNextdotjs, SiMongodb, SiPostgresql, SiTypescript, SiUnity, SiBlender } from "react-icons/si";
+import { SiJavascript, SiTailwindcss, SiNextdotjs, SiMongodb, SiPostgresql, SiTypescript, SiUnity, SiBlender, SiGodotengine } from "react-icons/si";
 import { TbBrandThreejs, TbBrandCSharp, TbBrandKotlin } from "react-icons/tb";
 import { IoLogoFirebase } from "react-icons/io5";
 
@@ -27,7 +27,8 @@ export const webSkillsData = [
 export const gameSkillsData = [
     { name: "UNITY", xp: "1 YR", icon: <SiUnity style={{ height: "1.75rem", width: "auto" }} /> },
     { name: "C#", xp: "1 YR", icon: <TbBrandCSharp style={{ height: "1.75rem", width: "auto" }} /> },
-    { name: "BLENDER", xp: "1 YR", icon: <SiBlender style={{ height: "1.75rem", width: "auto" }} /> }
+    { name: "BLENDER", xp: "1 YR", icon: <SiBlender style={{ height: "1.75rem", width: "auto" }} /> },
+    { name: "GODOT", xp: "0.5 YR", icon: <SiGodotengine style={{ height: "1.75rem", width: "auto" }} />}
 ];
 
 export const appSkillsData = [

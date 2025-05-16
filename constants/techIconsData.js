@@ -42,7 +42,9 @@ import {
     SiCanva,
     SiRiotgames,
     SiNintendoswitch,
-    SiGodotengine
+    SiGodotengine,
+    SiNeovim,
+    SiVim,
 } from "react-icons/si";
 import { TbBrandKotlin } from "react-icons/tb";
 import { RiJavascriptFill } from "react-icons/ri";
@@ -113,4 +115,6 @@ export const techIcons = [
     SiOpencv,
     FaRust,
     BiLogoCPlusPlus,
+    SiNeovim,
+    SiVim,
 ];

@@ -196,4 +196,25 @@ export const projectsData = [
         link: "https://fin360-bournvita-smugglers.vercel.app/en",
         madeAt: "Data 2 Knowledge 3.0",
     },
+    {
+        id: 8,
+        title: "Cosmos AI: AI-driven Procedural Content Generation and Dynamic Difficulty Adjustment",
+        year: "2024",
+        description: "",
+        image: D2K_Web,
+        isWinner: false,
+        technologies: [
+            "Python",
+            "DCGAN",
+            "OpenCV",
+            "RNN",
+            "LSTM",
+            "React.js",
+            "Typescript",
+            "ShadCN",
+            "TailwindCSS"
+        ],
+        link: "",
+        madeAt: "Personal Project",
+    },
 ];
