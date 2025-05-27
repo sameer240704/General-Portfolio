@@ -1,4 +1,13 @@
-import { BandhuWeb, D2K_Web, HacknicheWeb, Law4AllWeb, LocWeb, VaniVikasWeb, VerityFinanceWeb } from "@/public";
+import {
+    BandhuWeb,
+    D2K_Web,
+    HacknicheWeb,
+    Law4AllWeb,
+    LocWeb,
+    Portfolio_Web,
+    VaniVikasWeb,
+    VerityFinanceWeb,
+} from "@/public";
 
 export const projectsData = [
     {
@@ -23,7 +32,7 @@ export const projectsData = [
             "Three.js",
             "Mixtral-8x7b",
             "FastAPI",
-            "Groq API"
+            "Groq API",
         ],
         link: "https://vanivikas.com",
         madeAt: "SIH 2024",
@@ -52,7 +61,7 @@ export const projectsData = [
             "Stable Diffusion",
             "Vuforia",
             "Gemini 2.0 Pro",
-            "Groq API"
+            "Groq API",
         ],
         link: "https://bandhu-vesit.vercel.app",
         madeAt: "VES-HACK-IT 2025",
@@ -78,7 +87,7 @@ export const projectsData = [
             "Yahoo Finance",
             "TailwindCSS",
             "Gemini 2.0 Pro",
-            "Groq API"
+            "Groq API",
         ],
         link: "https://github.com/sameer240704/verity-finance-datazen",
         madeAt: "Datazen 2025",
@@ -105,7 +114,7 @@ export const projectsData = [
             "Three.js",
             "Mixtral-8x7b",
             "Mapbox",
-            "Groq API"
+            "Groq API",
         ],
         link: "https://youtu.be/0kGHDOfh8jk",
         madeAt: "Lines of Code 7.0",
@@ -132,7 +141,7 @@ export const projectsData = [
             "Selenium",
             "Neo4j AuraDB",
             "Unity Engine",
-            "Groq API"
+            "Groq API",
         ],
         link: "https://github.com/sameer240704/bestiesofsyntax_hackniche3",
         madeAt: "Hackniche 3.0",
@@ -163,7 +172,7 @@ export const projectsData = [
             "Streamlit",
             "Eleven Labs",
             "Twilio",
-            "Meta AI"
+            "Meta AI",
         ],
         link: "https://law4all-bournvita-smugglers.vercel.app/en",
         madeAt: "Hack2Infinity",
@@ -212,9 +221,24 @@ export const projectsData = [
             "React.js",
             "Typescript",
             "ShadCN",
-            "TailwindCSS"
+            "TailwindCSS",
         ],
         link: "",
         madeAt: "Personal Project",
     },
+    {
+        id: 9,
+        title: "Personal Portfolio",
+        year: "2025",
+        description: "",
+        image: Portfolio_Web,
+        isWinner: false,
+        technologies: [
+            "Next.js",
+            "TailwindCSS",
+            "ShadCN",
+        ],
+        link: "https://sameer-gupta.vercel.app/",
+        madeAt: "Personal Project"
+    }
 ];
