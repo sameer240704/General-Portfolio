@@ -2,6 +2,8 @@ import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import { GlobalStateProvider } from "@/hooks/useGlobalState";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const montserratFont = Montserrat({
   variable: "--font-montserrat",
@@ -26,6 +28,10 @@ export default function RootLayout({ children }) {
           className={`${montserratFont.variable} ${hiatusFont.variable} antialiased`}
         >
           {children}
+
+          <Analytics />
+
+          <SpeedInsights />
         </body>
       </GlobalStateProvider>
     </html>
