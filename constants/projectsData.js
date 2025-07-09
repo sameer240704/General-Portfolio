@@ -2,6 +2,7 @@ import {
     BandhuWeb,
     D2K_Web,
     HacknicheWeb,
+    JofFu_Web,
     Law4AllWeb,
     LocWeb,
     Portfolio_Web,
@@ -240,5 +241,34 @@ export const projectsData = [
         ],
         link: "https://sameer-gupta.vercel.app/",
         madeAt: "Personal Project"
-    }
+    },
+    {
+        id: 10,
+        title: "JobFu - Hire like a Master!",
+        year: "2025",
+        description:
+            "An advanced AI-driven system that automates resume extraction, enrichment, and candidate ranking to streamline recruitment workflows. Leveraging cutting-edge large language models and information retrieval techniques, it intelligently parses and summarizes candidate data, builds relationship-aware graph databases for richer context, and ranks applicants based on multi-layered relevance metrics like BM25, TF-IDF, and fuzzy matching. Designed for scalability and efficiency, HireAI enables recruiters to search, compare, and shortlist candidates faster and more accurately, transforming the hiring process into a smarter, data-informed experience.",
+        image: JofFu_Web,
+        isWinner: false,
+        hackathon: "100xEngineers GenAI Buildathon",
+        technologies: [
+            "Next.js",
+            "Python",
+            "Mistral OCR",
+            "Llama3",
+            "TailwindCSS",
+            "ShadCN",
+            "Gemini 2.0 Flash",
+            "Google Cloud Platform",
+            "MongoDB",
+            "Supabase",
+            "Neo4j AuraDB",
+            "Groq API",
+            "LangChain",
+            "FastApi",
+            "Nodemailer"
+        ],
+        link: "https://jobfu-tech.vercel.app",
+        madeAt: "100xEngineer GenAI Buildathon 2.0",
+    },
 ];

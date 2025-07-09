@@ -4,6 +4,7 @@ import Image from "next/image";
 import { GoTrophy } from "react-icons/go";
 import { projectsData } from "@/constants/projectsData";
 import { BsLink45Deg } from "react-icons/bs";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const Projects = () => {
   const [showListView, setShowListView] = useState(false);
@@ -152,7 +153,7 @@ const Projects = () => {
                     }}
                     className="group-hover:-translate-x-1 transition-transform duration-300"
                   >
-                    ←
+                    <FaArrowLeftLong className="h-3 w-auto" />
                   </motion.span>
                   <span className="font-medium">Back to Projects</span>
                 </button>
@@ -221,7 +222,10 @@ const Projects = () => {
                             {project.title}
                             {project.isWinner && (
                               <span className="ml-2 inline-block text-xs bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-2 py-1 rounded-full align-middle">
-                                Winner
+                                <span className="flex items-center gap-x-1">
+                                  <GoTrophy className="h-3.5 w-auto text-white" />
+                                  Winner
+                                </span>
                               </span>
                             )}
                           </div>
