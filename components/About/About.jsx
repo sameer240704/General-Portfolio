@@ -54,7 +54,7 @@ const About = () => {
                     {card.icon}
                   </div>
 
-                  <div className="absolute transition-all duration-300 text-sm font-medium text-white text-center opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:delay-200">
+                  <div className="absolute transition-all duration-300 text-sm font-medium text-white text-center opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:delay-200 leading-[1rem]">
                     {card.name}
                   </div>
                 </div>

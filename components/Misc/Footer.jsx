@@ -106,8 +106,8 @@ const SocialLink = ({ link, icon, label, index, isOpen }) => {
           isGlitching
             ? "text-white"
             : isHovered
-            ? "text-purple-500"
-            : "text-white"
+              ? "text-purple-500"
+              : "text-white"
         }`}
       >
         {icon}
@@ -170,7 +170,7 @@ const MenuLink = ({
   );
 };
 
-const NavigationMenu = ({ isOpen }) => {
+const NavigationMenu = ({ isOpen, setIsOpen }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [hoverPage, setHoverPage] = useState(0);
   const { setCurrentSection } = useGlobalState();
@@ -188,6 +188,8 @@ const NavigationMenu = ({ isOpen }) => {
     setHoverPage(index);
     const sectionName = MENU_LINKS[index]?.name;
     if (sectionName) setCurrentSection(sectionName);
+
+    setIsOpen(false);
   };
 
   return (
@@ -325,7 +327,7 @@ const NavigationBar = () => {
         </div>
       </button>
 
-      <NavigationMenu isOpen={isOpen} />
+      <NavigationMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };

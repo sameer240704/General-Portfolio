@@ -99,7 +99,7 @@ const Projects = () => {
                               >
                                 {tech}
                               </span>
-                            )
+                            ),
                         )}
                         {project.technologies.length > 10 && (
                           <span className="text-xs font-medium bg-purple-900/40 text-purple-200 px-3 py-1 rounded-full border border-purple-800/50">

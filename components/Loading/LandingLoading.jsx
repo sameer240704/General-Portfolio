@@ -21,7 +21,7 @@ const LandingLoading = ({ loadingComplete, loading }) => {
             techIcons[Math.floor(Math.random() * techIcons.length)];
           const delay = Math.random() * 2;
           return { Icon: RandomIcon, delay, appear: Math.random() * 3 };
-        })
+        }),
       );
       setIconGrid(grid);
     };
@@ -69,7 +69,7 @@ const LandingLoading = ({ loadingComplete, loading }) => {
       <div className="absolute inset-0 flex items-center justify-center z-10">
         {showWelcome && (
           <div
-            className="text-white font-bold opacity-0 uppercase tracking-[0.5rem]"
+            className="text-white font-bold opacity-0 uppercase tracking-[0.4rem]"
             style={{
               animation: "fadeInOut 2s forwards",
               fontFamily: "sans-serif",
